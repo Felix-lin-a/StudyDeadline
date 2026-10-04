@@ -10,12 +10,32 @@ import CoreData
 
 @main
 struct StudyDeadlineApp: App {
-    let persistenceController = PersistenceController.shared
+
+    private let persistenceController: PersistenceController
+    private let repository: DeadlineRepository
+
+    init() {
+        let persistence = PersistenceController.shared
+
+        // A separate working context for the repository.
+        let repositoryContext = NSManagedObjectContext(
+            concurrencyType: .mainQueueConcurrencyType
+        )
+
+        // Use the same persistent store as the existing container.
+        repositoryContext.persistentStoreCoordinator =
+            persistence.container.persistentStoreCoordinator
+
+        self.persistenceController = persistence
+
+        self.repository = CoreDataDeadlineRepository(
+            context: repositoryContext
+        )
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ContentView(repository: repository)
         }
     }
 }
