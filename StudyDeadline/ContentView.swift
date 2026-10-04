@@ -11,7 +11,11 @@ struct ContentView: View {
 
     @State private var courseViewModel: CourseListViewModel
 
+    private let repository: DeadlineRepository
+
     init(repository: DeadlineRepository) {
+        self.repository = repository
+
         _courseViewModel = State(
             initialValue: CourseListViewModel(
                 repository: repository
@@ -22,7 +26,10 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                CoursesView(viewModel: courseViewModel)
+                CoursesView(
+                    viewModel: courseViewModel,
+                    repository: repository
+                )
             }
             .tabItem {
                 Label("Courses", systemImage: "books.vertical")

@@ -12,6 +12,8 @@ struct CoursesView: View {
 
     @Bindable var viewModel: CourseListViewModel
 
+    let repository: DeadlineRepository
+
     var body: some View {
         Form {
             Section("Add Course") {
@@ -59,14 +61,23 @@ struct CoursesView: View {
                 }
 
                 ForEach(viewModel.courses) { course in
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(course.name)
-                            .font(.headline)
+                    NavigationLink {
+                        CourseDetailView(
+                            viewModel: CourseDetailViewModel(
+                                course: course,
+                                repository: repository
+                            )
+                        )
+                    } label: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(course.name)
+                                .font(.headline)
 
-                        if let code = course.code {
-                            Text("Course code: \(code)")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                            if let code = course.code {
+                                Text("Course code: \(code)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                     }
                 }
