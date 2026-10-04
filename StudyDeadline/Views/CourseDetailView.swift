@@ -62,9 +62,18 @@ struct CourseDetailView: View {
                 }
 
                 ForEach(viewModel.deadlines) { deadline in
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(deadline.title)
-                            .font(.headline)
+                    VStack(alignment: .leading, spacing: 8) {
+
+                        HStack {
+                            Text(deadline.title)
+                                .font(.headline)
+
+                            Spacer()
+
+                            if deadline.isCompleted {
+                                Image(systemName: "checkmark.circle.fill")
+                            }
+                        }
 
                         Text(
                             deadline.dueDate,
@@ -81,6 +90,17 @@ struct CourseDetailView: View {
                         if let notes = deadline.notes {
                             Text(notes)
                                 .font(.caption)
+                        }
+
+                        Button(
+                            deadline.isCompleted
+                                ? "Mark Incomplete"
+                                : "Mark Complete"
+                        ) {
+                            viewModel.updateDeadlineStatus(
+                                deadline: deadline,
+                                isCompleted: !deadline.isCompleted
+                            )
                         }
                     }
                 }

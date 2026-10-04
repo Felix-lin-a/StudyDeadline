@@ -25,6 +25,7 @@ final class CourseDetailViewModel {
 
     private let repository: DeadlineRepository
     private let createDeadlineUseCase: CreateDeadlineUseCase
+    private let updateDeadlineStatusUseCase: UpdateDeadlineStatusUseCase
 
     init(
         course: Course,
@@ -32,7 +33,12 @@ final class CourseDetailViewModel {
     ) {
         self.course = course
         self.repository = repository
+
         self.createDeadlineUseCase = CreateDeadlineUseCase(
+            repository: repository
+        )
+
+        self.updateDeadlineStatusUseCase = UpdateDeadlineStatusUseCase(
             repository: repository
         )
     }
@@ -43,6 +49,7 @@ final class CourseDetailViewModel {
             deadlines = try repository.fetchDeadlines(
                 courseID: course.id
             )
+
             errorMessage = ""
         } catch {
             errorMessage =
@@ -65,7 +72,29 @@ final class CourseDetailViewModel {
 
             titleInput = ""
             notesInput = ""
-            statusMessage = "Deadline saved: \(deadline.title)"
+
+            statusMessage =
+                "Deadline saved: \(deadline.title)"
+
+            loadDeadlines()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    /// Changes the completion status of a deadline.
+    func updateDeadlineStatus(
+        deadline: Deadline,
+        isCompleted: Bool
+    ) {
+        errorMessage = ""
+        statusMessage = ""
+
+        do {
+            _ = try updateDeadlineStatusUseCase.execute(
+                deadlineID: deadline.id,
+                isCompleted: isCompleted
+            )
 
             loadDeadlines()
         } catch {
