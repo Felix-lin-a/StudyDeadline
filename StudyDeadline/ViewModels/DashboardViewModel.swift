@@ -41,6 +41,18 @@ final class DashboardViewModel {
             )
 
             errorMessage = ""
+
+            if let nextDeadline = upcomingDeadlines.first,
+               let course = try repository.fetchCourse(
+                   id: nextDeadline.courseID
+               ) {
+
+                WidgetDataStore.save(
+                    title: nextDeadline.title,
+                    courseName: course.name,
+                    dueDate: nextDeadline.dueDate
+                )
+            }
         } catch {
             errorMessage =
                 "Upcoming deadlines could not be loaded. Please try again."

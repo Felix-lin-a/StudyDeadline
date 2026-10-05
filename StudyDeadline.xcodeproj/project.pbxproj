@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		82E9225E3073688400A52769 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E9225D3073688400A52769 /* WidgetKit.framework */; };
+		82E922603073688400A52769 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E9225F3073688400A52769 /* SwiftUI.framework */; };
+		82E9226B3073688600A52769 /* StudyDeadlineWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 82E9225B3073688400A52769 /* StudyDeadlineWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		82E9227430736EDD00A52769 /* WidgetDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9227330736EDD00A52769 /* WidgetDataStore.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		82E921AB306F81CD00A52769 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,13 +28,49 @@
 			remoteGlobalIDString = 82E92197306F81CB00A52769;
 			remoteInfo = StudyDeadline;
 		};
+		82E922693073688600A52769 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82E92190306F81CB00A52769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82E9225A3073688400A52769;
+			remoteInfo = StudyDeadlineWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		82E922703073688600A52769 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				82E9226B3073688600A52769 /* StudyDeadlineWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		82E92198306F81CB00A52769 /* StudyDeadline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyDeadline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E921AA306F81CD00A52769 /* StudyDeadlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyDeadlineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E921B4306F81CD00A52769 /* StudyDeadlineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyDeadlineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		82E9225B3073688400A52769 /* StudyDeadlineWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StudyDeadlineWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		82E9225D3073688400A52769 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		82E9225F3073688400A52769 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		82E9227230736E6400A52769 /* StudyDeadlineWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyDeadlineWidgetExtension.entitlements; sourceTree = "<group>"; };
+		82E9227330736EDD00A52769 /* WidgetDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		82E9226C3073688600A52769 /* Exceptions for "StudyDeadlineWidget" folder in "StudyDeadlineWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 82E9225A3073688400A52769 /* StudyDeadlineWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		82E9219A306F81CB00A52769 /* StudyDeadline */ = {
@@ -43,6 +86,14 @@
 		82E921B7306F81CD00A52769 /* StudyDeadlineUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = StudyDeadlineUITests;
+			sourceTree = "<group>";
+		};
+		82E922613073688400A52769 /* StudyDeadlineWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				82E9226C3073688600A52769 /* Exceptions for "StudyDeadlineWidget" folder in "StudyDeadlineWidgetExtension" target */,
+			);
+			path = StudyDeadlineWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,15 +120,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82E922583073688400A52769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82E922603073688400A52769 /* SwiftUI.framework in Frameworks */,
+				82E9225E3073688400A52769 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		82E9218F306F81CB00A52769 = {
 			isa = PBXGroup;
 			children = (
+				82E9227330736EDD00A52769 /* WidgetDataStore.swift */,
+				82E9227230736E6400A52769 /* StudyDeadlineWidgetExtension.entitlements */,
 				82E9219A306F81CB00A52769 /* StudyDeadline */,
 				82E921AD306F81CD00A52769 /* StudyDeadlineTests */,
 				82E921B7306F81CD00A52769 /* StudyDeadlineUITests */,
+				82E922613073688400A52769 /* StudyDeadlineWidget */,
+				82E9225C3073688400A52769 /* Frameworks */,
 				82E92199306F81CB00A52769 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +152,18 @@
 				82E92198306F81CB00A52769 /* StudyDeadline.app */,
 				82E921AA306F81CD00A52769 /* StudyDeadlineTests.xctest */,
 				82E921B4306F81CD00A52769 /* StudyDeadlineUITests.xctest */,
+				82E9225B3073688400A52769 /* StudyDeadlineWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		82E9225C3073688400A52769 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82E9225D3073688400A52769 /* WidgetKit.framework */,
+				82E9225F3073688400A52769 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,10 +176,12 @@
 				82E92194306F81CB00A52769 /* Sources */,
 				82E92195306F81CB00A52769 /* Frameworks */,
 				82E92196306F81CB00A52769 /* Resources */,
+				82E922703073688600A52769 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				82E9226A3073688600A52769 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				82E9219A306F81CB00A52769 /* StudyDeadline */,
@@ -163,6 +239,28 @@
 			productReference = 82E921B4306F81CD00A52769 /* StudyDeadlineUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		82E9225A3073688400A52769 /* StudyDeadlineWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82E9226D3073688600A52769 /* Build configuration list for PBXNativeTarget "StudyDeadlineWidgetExtension" */;
+			buildPhases = (
+				82E922573073688400A52769 /* Sources */,
+				82E922583073688400A52769 /* Frameworks */,
+				82E922593073688400A52769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				82E922613073688400A52769 /* StudyDeadlineWidget */,
+			);
+			name = StudyDeadlineWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = StudyDeadlineWidgetExtension;
+			productReference = 82E9225B3073688400A52769 /* StudyDeadlineWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +282,9 @@
 						CreatedOnToolsVersion = 26.6;
 						TestTargetID = 82E92197306F81CB00A52769;
 					};
+					82E9225A3073688400A52769 = {
+						CreatedOnToolsVersion = 26.6;
+					};
 				};
 			};
 			buildConfigurationList = 82E92193306F81CB00A52769 /* Build configuration list for PBXProject "StudyDeadline" */;
@@ -203,6 +304,7 @@
 				82E92197306F81CB00A52769 /* StudyDeadline */,
 				82E921A9306F81CD00A52769 /* StudyDeadlineTests */,
 				82E921B3306F81CD00A52769 /* StudyDeadlineUITests */,
+				82E9225A3073688400A52769 /* StudyDeadlineWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -229,6 +331,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82E922593073688400A52769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -236,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E9227430736EDD00A52769 /* WidgetDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +357,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		82E921B0306F81CD00A52769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82E922573073688400A52769 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,6 +382,11 @@
 			isa = PBXTargetDependency;
 			target = 82E92197306F81CB00A52769 /* StudyDeadline */;
 			targetProxy = 82E921B5306F81CD00A52769 /* PBXContainerItemProxy */;
+		};
+		82E9226A3073688600A52769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82E9225A3073688400A52769 /* StudyDeadlineWidgetExtension */;
+			targetProxy = 82E922693073688600A52769 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -393,8 +515,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StudyDeadline/StudyDeadline.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98XV5W93YF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -424,8 +548,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StudyDeadline/StudyDeadline.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98XV5W93YF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -530,6 +656,68 @@
 			};
 			name = Release;
 		};
+		82E9226E3073688600A52769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StudyDeadlineWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98XV5W93YF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StudyDeadlineWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StudyDeadlineWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixlina.StudyDeadline.StudyDeadlineWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		82E9226F3073688600A52769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StudyDeadlineWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98XV5W93YF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StudyDeadlineWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StudyDeadlineWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixlina.StudyDeadline.StudyDeadlineWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -565,6 +753,15 @@
 			buildConfigurations = (
 				82E921C5306F81CD00A52769 /* Debug */,
 				82E921C6306F81CD00A52769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82E9226D3073688600A52769 /* Build configuration list for PBXNativeTarget "StudyDeadlineWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82E9226E3073688600A52769 /* Debug */,
+				82E9226F3073688600A52769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
