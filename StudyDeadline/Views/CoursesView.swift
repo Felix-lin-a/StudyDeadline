@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Lets a student create courses and view their saved courses.
+/// Displays saved courses and lets the student open or add courses.
 struct CoursesView: View {
 
     @Bindable var viewModel: CourseListViewModel
@@ -15,48 +15,22 @@ struct CoursesView: View {
     let repository: DeadlineRepository
 
     var body: some View {
-        Form {
-            Section("Add Course") {
-                TextField(
-                    "Course name",
-                    text: $viewModel.nameInput
-                )
-
-                TextField(
-                    "Course code (optional)",
-                    text: $viewModel.codeInput
-                )
-
-                Button("Save Course") {
-                    viewModel.createCourse()
-                }
-
-                if !viewModel.saveErrorMessage.isEmpty {
-                    Text(viewModel.saveErrorMessage)
-                        .font(.caption)
-                        .foregroundStyle(.red)
-                }
-
-                if !viewModel.statusMessage.isEmpty {
-                    Text(viewModel.statusMessage)
-                        .font(.caption)
-                }
-            }
-
-            Section("Your Courses") {
-                if !viewModel.loadErrorMessage.isEmpty {
+        List {
+            if !viewModel.loadErrorMessage.isEmpty {
+                Section {
                     Text(viewModel.loadErrorMessage)
-                        .font(.caption)
                         .foregroundStyle(.red)
 
                     Button("Retry") {
                         viewModel.loadCourses()
                     }
                 }
+            }
 
+            Section("Your Courses") {
                 if viewModel.courses.isEmpty &&
                     viewModel.loadErrorMessage.isEmpty {
-                    Text("No courses yet. Add your first course above.")
+                    Text("No courses yet.")
                         .foregroundStyle(.secondary)
                 }
 
@@ -84,6 +58,19 @@ struct CoursesView: View {
             }
         }
         .navigationTitle("Courses")
+        .toolbar {
+            ToolbarItem(
+                placement: .topBarTrailing
+            ) {
+                NavigationLink {
+                    AddCourseView(
+                        viewModel: viewModel
+                    )
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
         .onAppear {
             viewModel.loadCourses()
         }

@@ -12,51 +12,25 @@ struct CourseDetailView: View {
     @Bindable var viewModel: CourseDetailViewModel
 
     var body: some View {
-        Form {
+        List {
             Section("Course") {
                 Text(viewModel.course.name)
                     .font(.headline)
 
                 if let code = viewModel.course.code {
-                    Text(code)
+                    Text("Course code: \(code)")
                         .foregroundStyle(.secondary)
                 }
             }
 
-            Section("Add Deadline") {
-                TextField(
-                    "Assessment title",
-                    text: $viewModel.titleInput
-                )
-
-                DatePicker(
-                    "Due date",
-                    selection: $viewModel.dueDateInput
-                )
-
-                TextField(
-                    "Notes (optional)",
-                    text: $viewModel.notesInput
-                )
-
-                Button("Save Deadline") {
-                    viewModel.createDeadline()
-                }
-
+            Section("Deadlines") {
                 if !viewModel.errorMessage.isEmpty {
                     Text(viewModel.errorMessage)
-                        .font(.caption)
                         .foregroundStyle(.red)
                 }
 
-                if !viewModel.statusMessage.isEmpty {
-                    Text(viewModel.statusMessage)
-                        .font(.caption)
-                }
-            }
-
-            Section("Deadlines") {
-                if viewModel.deadlines.isEmpty {
+                if viewModel.deadlines.isEmpty &&
+                    viewModel.errorMessage.isEmpty {
                     Text("No deadlines yet.")
                         .foregroundStyle(.secondary)
                 }
@@ -71,7 +45,9 @@ struct CourseDetailView: View {
                             Spacer()
 
                             if deadline.isCompleted {
-                                Image(systemName: "checkmark.circle.fill")
+                                Image(
+                                    systemName: "checkmark.circle.fill"
+                                )
                             }
                         }
 
@@ -107,6 +83,19 @@ struct CourseDetailView: View {
             }
         }
         .navigationTitle(viewModel.course.name)
+        .toolbar {
+            ToolbarItem(
+                placement: .topBarTrailing
+            ) {
+                NavigationLink {
+                    AddDeadlineView(
+                        viewModel: viewModel
+                    )
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
         .onAppear {
             viewModel.loadDeadlines()
         }
