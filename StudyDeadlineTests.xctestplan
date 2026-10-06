@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "58D5A17F-7FA0-407F-B962-B3DADB6A73D7",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:StudyDeadline.xcodeproj",
+        "identifier" : "82E921A9306F81CD00A52769",
+        "name" : "StudyDeadlineTests"
+      }
+    }
+  ],
+  "version" : 1
+}

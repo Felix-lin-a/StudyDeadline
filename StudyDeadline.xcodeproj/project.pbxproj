@@ -12,6 +12,7 @@
 		82E9226B3073688600A52769 /* StudyDeadlineWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 82E9225B3073688400A52769 /* StudyDeadlineWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		82E9227430736EDD00A52769 /* WidgetDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9227330736EDD00A52769 /* WidgetDataStore.swift */; };
 		82E92283307372F400A52769 /* StudyDeadlineShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 82E92279307372F400A52769 /* StudyDeadlineShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		82E922D13074E9CA00A52769 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 82E922D03074E9CA00A52769 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		82E9227230736E6400A52769 /* StudyDeadlineWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyDeadlineWidgetExtension.entitlements; sourceTree = "<group>"; };
 		82E9227330736EDD00A52769 /* WidgetDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataStore.swift; sourceTree = "<group>"; };
 		82E92279307372F400A52769 /* StudyDeadlineShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StudyDeadlineShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		82E922D03074E9CA00A52769 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				82E9227330736EDD00A52769 /* WidgetDataStore.swift */,
+				82E922D03074E9CA00A52769 /* README.md */,
 				82E9227230736E6400A52769 /* StudyDeadlineWidgetExtension.entitlements */,
 				82E9219A306F81CB00A52769 /* StudyDeadline */,
 				82E921AD306F81CD00A52769 /* StudyDeadlineTests */,
@@ -375,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E922D13074E9CA00A52769 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
