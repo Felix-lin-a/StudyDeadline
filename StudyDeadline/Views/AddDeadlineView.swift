@@ -30,6 +30,11 @@ struct AddDeadlineView: View {
                     "Notes (optional)",
                     text: $viewModel.notesInput
                 )
+                
+                TextField(
+                    "Source URL (optional)",
+                    text: $viewModel.sourceURLInput
+                )
             }
 
             Section {
@@ -50,5 +55,9 @@ struct AddDeadlineView: View {
             }
         }
         .navigationTitle("Add Deadline")
+        .onAppear {
+            viewModel.loadSharedURL()
+        }
     }
+    
 }

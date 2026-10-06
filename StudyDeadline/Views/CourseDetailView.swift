@@ -67,6 +67,12 @@ struct CourseDetailView: View {
                             Text(notes)
                                 .font(.caption)
                         }
+                        
+                        if let sourceURL = deadline.sourceURL,
+                           let url = URL(string: sourceURL) {
+                            Link("Open Source", destination: url)
+                                .font(.caption)
+                        }
 
                         Button(
                             deadline.isCompleted

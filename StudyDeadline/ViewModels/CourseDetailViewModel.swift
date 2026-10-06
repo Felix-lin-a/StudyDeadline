@@ -18,6 +18,7 @@ final class CourseDetailViewModel {
     var titleInput = ""
     var dueDateInput = Date()
     var notesInput = ""
+    var sourceURLInput = ""
 
     private(set) var deadlines: [Deadline] = []
     private(set) var errorMessage = ""
@@ -41,6 +42,23 @@ final class CourseDetailViewModel {
         self.updateDeadlineStatusUseCase = UpdateDeadlineStatusUseCase(
             repository: repository
         )
+    }
+    
+    /// Loads a URL received from the Share Extension.
+    func loadSharedURL() {
+        let defaults = UserDefaults(
+            suiteName: "group.com.felixlina.StudyDeadline"
+        )
+
+        if let sharedURL = defaults?.string(
+            forKey: "sharedURL"
+        ) {
+            sourceURLInput = sharedURL
+
+            defaults?.removeObject(
+                forKey: "sharedURL"
+            )
+        }
     }
 
     /// Loads all deadlines belonging to this course.
@@ -67,12 +85,13 @@ final class CourseDetailViewModel {
                 courseID: course.id,
                 title: titleInput,
                 dueDate: dueDateInput,
-                notes: notesInput
+                notes: notesInput,
+                sourceURL: sourceURLInput
             )
 
             titleInput = ""
             notesInput = ""
-
+            sourceURLInput = ""
             statusMessage =
                 "Deadline saved: \(deadline.title)"
 
